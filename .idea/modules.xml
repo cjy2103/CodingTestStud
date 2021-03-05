@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Greedy/Greedy.iml" filepath="$PROJECT_DIR$/Greedy/Greedy.iml" />
       <module fileurl="file://$PROJECT_DIR$/스택,큐/스택,큐.iml" filepath="$PROJECT_DIR$/스택,큐/스택,큐.iml" />
       <module fileurl="file://$PROJECT_DIR$/스택/큐/스택/큐.iml" filepath="$PROJECT_DIR$/스택/큐/스택/큐.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/프로그래머스.iml" filepath="$PROJECT_DIR$/.idea/프로그래머스.iml" />
