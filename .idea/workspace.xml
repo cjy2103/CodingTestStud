@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfb54251-bfc1-4fda-928f-c5452a7975a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Greedy/src/BigNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/정렬/src/kthNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/Greedy/gymSuit.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/Greedy/gymSuit.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +62,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BigNumber">
+  <component name="RunManager" selected="Application.kthNumber">
     <configuration name="BigNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BigNumber" />
       <module name="Greedy" />
@@ -91,8 +91,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="kthNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kthNumber" />
+      <module name="정렬" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.kthNumber" />
         <item itemvalue="Application.BigNumber" />
         <item itemvalue="Application.gymSuit" />
         <item itemvalue="Application.Maraton" />
@@ -113,7 +121,9 @@
       <workItem from="1614781904924" duration="5440000" />
       <workItem from="1614865208281" duration="2577000" />
       <workItem from="1614876636614" duration="619000" />
-      <workItem from="1614960586446" duration="8243000" />
+      <workItem from="1614960586446" duration="8332000" />
+      <workItem from="1615037247266" duration="498000" />
+      <workItem from="1615037765536" duration="3755000" />
     </task>
     <task id="LOCAL-00001" summary="프로그래머스 완주하지 못한 선수">
       <created>1614870493178</created>
