@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfb54251-bfc1-4fda-928f-c5452a7975a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/정렬/src/kthNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -123,7 +121,9 @@
       <workItem from="1614876636614" duration="619000" />
       <workItem from="1614960586446" duration="8332000" />
       <workItem from="1615037247266" duration="498000" />
-      <workItem from="1615037765536" duration="3755000" />
+      <workItem from="1615037765536" duration="3879000" />
+      <workItem from="1615066203258" duration="46000" />
+      <workItem from="1615066252326" duration="261000" />
     </task>
     <task id="LOCAL-00001" summary="프로그래머스 완주하지 못한 선수">
       <created>1614870493178</created>
