@@ -10,3 +10,4 @@
 * DFS/BFS
 * 이분탐색
 * 그래프
+* SQL (Oracle)
