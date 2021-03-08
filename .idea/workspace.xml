@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dfb54251-bfc1-4fda-928f-c5452a7975a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL/SELECT/SELECTORA" beforeDir="false" afterPath="$PROJECT_DIR$/SQL/SELECT/SELECTORA" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,6 +125,8 @@
       <workItem from="1615037765536" duration="3879000" />
       <workItem from="1615066203258" duration="46000" />
       <workItem from="1615066252326" duration="261000" />
+      <workItem from="1615067062545" duration="35000" />
+      <workItem from="1615173878593" duration="4949000" />
     </task>
     <task id="LOCAL-00001" summary="프로그래머스 완주하지 못한 선수">
       <created>1614870493178</created>
