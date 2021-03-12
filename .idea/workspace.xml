@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dfb54251-bfc1-4fda-928f-c5452a7975a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL/SELECT/SELECTORA" beforeDir="false" afterPath="$PROJECT_DIR$/SQL/SELECT/SELECTORA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/해시/Maraton.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/해시/Maraton.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.kthNumber">
+  <component name="RunManager" selected="Application.PhoneNumber">
     <configuration name="BigNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BigNumber" />
       <module name="Greedy" />
@@ -76,9 +76,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="bridgeTruck" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bridgeTruck" />
-      <module name="스택,큐" />
+    <configuration name="PhoneNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PhoneNumber" />
+      <module name="해시" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -99,11 +99,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PhoneNumber" />
         <item itemvalue="Application.kthNumber" />
         <item itemvalue="Application.BigNumber" />
         <item itemvalue="Application.gymSuit" />
         <item itemvalue="Application.Maraton" />
-        <item itemvalue="Application.bridgeTruck" />
       </list>
     </recent_temporary>
   </component>
@@ -127,6 +127,7 @@
       <workItem from="1615066252326" duration="261000" />
       <workItem from="1615067062545" duration="35000" />
       <workItem from="1615173878593" duration="4949000" />
+      <workItem from="1615507532174" duration="2764000" />
     </task>
     <task id="LOCAL-00001" summary="프로그래머스 완주하지 못한 선수">
       <created>1614870493178</created>
