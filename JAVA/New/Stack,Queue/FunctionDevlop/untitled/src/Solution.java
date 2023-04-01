@@ -36,7 +36,7 @@ public class Solution {
                 count = 1;
             }
         }
-        releaseList.add(count); // 마지막 기능 배포 (top 변수 선언할 때 pop으로 빼고 시작해서)
+        releaseList.add(count); // 마지막 기능 배포
 
         return releaseList.stream().mapToInt(Integer::intValue).toArray();
     }
