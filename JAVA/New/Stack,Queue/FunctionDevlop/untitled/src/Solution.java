@@ -9,7 +9,7 @@ public class Solution {
         for(int i = progress.length -1 ; i >=0; i--){
             int day = (100 - progress[i]) / speeds[i];
 
-            // progress[1]의 경우는 위 계산식 수행시 2로 (반올림) 처리 되기 때문
+            // progress[1]의 경우는 위 계산식 수행시 2로 (내림) 처리 되기 때문
             if((100 - progress[i]) % speeds[i] != 0){
                 day++;
             }
@@ -38,13 +38,6 @@ public class Solution {
         }
         releaseList.add(count); // 마지막 기능 배포 (top 변수 선언할 때 pop으로 빼고 시작해서)
 
-
-        int [] answer = new int[releaseList.size()];
-
-        for(int i=0;i<releaseList.size();i++){
-            answer[i] = releaseList.get(i);
-        }
-
-        return answer;
+        return releaseList.stream().mapToInt(Integer::intValue).toArray();
     }
 }
