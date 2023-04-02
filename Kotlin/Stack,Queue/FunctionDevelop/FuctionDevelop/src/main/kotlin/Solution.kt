@@ -33,12 +33,6 @@ class Solution {
 
         releaseList.add(count)
 
-        val answer = IntArray(releaseList.size)
-
-        for(i in 0 until releaseList.size){
-            answer[i] = releaseList[i]
-        }
-
-        return answer;
+        return releaseList.toIntArray()
     }
 }
