@@ -2,21 +2,23 @@ import java.util.*
 
 class Solution {
     fun solution(scoville: IntArray, K: Int): Int {
-        val heap = PriorityQueue<Int>()
-        var answer = 0
-        for (value in scoville) {
-            heap.offer(value)
-        }
-        while (heap.peek() < K) {
-            if (heap.size < 2) {
+        tailrec fun mixScoville(heap: PriorityQueue<Int>, count: Int): Int {
+            if (heap.size < 2 && heap.peek() < K) {
                 return -1
+            }
+            if (heap.peek() >= K) {
+                return count
             }
             val first = heap.poll()
             val second = heap.poll()
             val mixed = first + second * 2
             heap.offer(mixed)
-            answer++
+            return mixScoville(heap, count + 1)
         }
-        return answer
+
+        val heap = PriorityQueue<Int>()
+        scoville.forEach { heap.offer(it) }
+        return mixScoville(heap, 0)
+
     }
 }
