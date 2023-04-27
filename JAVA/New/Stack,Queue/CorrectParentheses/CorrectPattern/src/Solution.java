@@ -1,9 +1,20 @@
+import java.util.Stack;
+
 public class Solution {
     boolean solution(String s) {
-        boolean answer = true;
+        Stack<Character> stack = new Stack<>();
 
-        System.out.println("Hello Java");
+        for(char c : s.toCharArray()){
+            if(c == '('){
+                stack.push(c);
+            } else {
+                if(stack.isEmpty() || stack.peek() != '('){
+                    return false;
+                }
+                stack.pop();
+            }
+        }
 
-        return answer;
+        return stack.isEmpty();
     }
 }
