@@ -21,7 +21,7 @@ public class Solution {
         int maxDistance = 0; // 최대 거리
 
         // 1번 노드부터 BFS 시작
-        queue.offer(1);
+        queue.add(1);
         visited[1] = true;
 
         while (!queue.isEmpty()) {
@@ -29,16 +29,19 @@ public class Solution {
 
             // 현재 레벨의 노드 개수만큼 반복
             for (int i = 0; i < size; i++) {
-                int node = queue.poll();
-
+                int node = queue.remove();
+                System.out.println(node);
                 // 현재 노드와 연결된 노드들을 큐에 추가
                 for (int nextNode : graph.get(node)) {
                     if (!visited[nextNode]) {
-                        queue.offer(nextNode);
+                        queue.add(nextNode);
                         visited[nextNode] = true;
+                        System.out.println(queue);
                     }
                 }
             }
+
+//            System.out.println(queue);
 
             // 현재 레벨의 모든 노드를 탐색한 후, 레벨 증가
             if (!queue.isEmpty()) {
@@ -46,14 +49,14 @@ public class Solution {
             }
         }
 
-        // 최대 거리에 있는 노드 개수 카운트
-        for (boolean visit : visited) {
-            if (visit && maxDistance == 1) {
-                answer++;
-            }
-        }
-
-        return answer;
+//        // 최대 거리에 있는 노드 개수 카운트
+//        for (boolean visit : visited) {
+//            if (visit && maxDistance == 1) {
+//                answer++;
+//            }
+//        }
+//        return answer;
+        return maxDistance;
     }
 
 }
