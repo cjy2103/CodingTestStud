@@ -13,9 +13,10 @@ public class Solution {
             graph.get(b).add(a);
         }
 
-        // BFS를 위한 큐와 방문 여부 배열 선언
+        // BFS를 위한 큐와 방문 여부 배열, 노드 길이 배열 선언
         Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[n + 1];
+        int[] distance = new int[n + 1];
 
         int answer = 0; // 가장 멀리 떨어진 노드의 개수
         int maxDistance = 0; // 최대 거리
@@ -26,22 +27,18 @@ public class Solution {
 
         while (!queue.isEmpty()) {
             int size = queue.size();
-
             // 현재 레벨의 노드 개수만큼 반복
             for (int i = 0; i < size; i++) {
                 int node = queue.remove();
-                System.out.println(node);
                 // 현재 노드와 연결된 노드들을 큐에 추가
                 for (int nextNode : graph.get(node)) {
                     if (!visited[nextNode]) {
                         queue.add(nextNode);
                         visited[nextNode] = true;
-                        System.out.println(queue);
+                        distance[nextNode] = distance[node] + 1; // 이전 노드까지의 거리 + 1
                     }
                 }
             }
-
-//            System.out.println(queue);
 
             // 현재 레벨의 모든 노드를 탐색한 후, 레벨 증가
             if (!queue.isEmpty()) {
@@ -49,14 +46,14 @@ public class Solution {
             }
         }
 
-//        // 최대 거리에 있는 노드 개수 카운트
-//        for (boolean visit : visited) {
-//            if (visit && maxDistance == 1) {
-//                answer++;
-//            }
-//        }
-//        return answer;
-        return maxDistance;
+        // 최대 거리에 있는 노드 개수 카운트
+        for (int i = 1; i <= n; i++) {
+            if (distance[i] == maxDistance) {
+                answer++;
+            }
+        }
+
+        return answer;
     }
 
 }
