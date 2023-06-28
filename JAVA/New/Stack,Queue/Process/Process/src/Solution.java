@@ -8,14 +8,30 @@ public class Solution {
             queue.add(priority);
         }
 
-        int order = 0;
+        int answer = 0;
         while (!queue.isEmpty()){
             int current = queue.poll();
+            boolean hasHigherPriority = false;
 
+            for(int priority : queue){
+                if(priority > current){
+                    hasHigherPriority = true;
+                    break;
+                }
+            }
+
+            if(hasHigherPriority){
+                queue.add(current);
+            }else {
+                answer++;
+                if(location == 0){
+                    return answer;
+                }
+            }
+            location = (location - 1 + queue.size()) % queue.size();
         }
 
-        int answer = 0;
-        return answer;
+        return -1; // 예외 처리: 대기 큐가 비어있을 경우
     }
 
 }
