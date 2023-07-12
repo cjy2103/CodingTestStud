@@ -1,15 +1,22 @@
 import java.util.*;
 class Solution {
     public String[] solution(String[] players, String[] callings) {
-        LinkedList<String> playerList = new LinkedList<>(Arrays.asList(players));
+        Map<String, Integer> playerMap = new HashMap<String, Integer>();
 
-        for (String calling : callings) {
-            int callingIndex = playerList.indexOf(calling); // 호출된 선수의 인덱스
-
-            playerList.remove(calling); // 호출된 선수를 리스트에서 제거
-            playerList.add(callingIndex - 1, calling); // 호출된 선수를 이전 위치의 바로 앞에 추가
+        for(int i = 0; i < players.length; i++){
+            playerMap.put(players[i], i);
         }
 
-        return playerList.toArray(new String[0]);
+        for(String name : callings){
+            // 순위 변경
+            int index = playerMap.get(name);
+            playerMap.put(players[index], index - 1);
+            playerMap.put(players[index - 1], playerMap.get(players[index - 1]) + 1);
+            // HashMap과 배열 동시 반영
+            String temp = players[index];
+            players[index] = players[index - 1];
+            players[index - 1] = temp;
+        }
+        return players;
     }
 }
