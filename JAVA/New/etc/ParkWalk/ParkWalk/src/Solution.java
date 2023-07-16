@@ -22,13 +22,11 @@ class Solution {
 
             }
 
-
-
         }
-
-        int[] answer = {};
-        return answer;
+        return start;
     }
+
+
 
 
     private int[] findStart(String[] park) {
@@ -63,6 +61,10 @@ class Solution {
         } else {
             return 0;
         }
+    }
+
+    private boolean isValidPosition(String[] park, int row, int col) {
+        return row >= 0 && row < park.length && col >= 0 && col < park[row].length();
     }
 
 }
