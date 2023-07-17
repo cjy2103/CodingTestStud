@@ -1,70 +1,53 @@
 class Solution {
     public int[] solution(String[] park, String[] routes) {
-        int[] start = findStart(park); // 시작지점 좌표 찾기
-        int[][] directions = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} }; // 북, 남, 서, 동 방향
+        int sx = 0;
+        int sy = 0;
 
-        for(String route : routes){
-            String[] command = route.split(" ");
-            String op = command[0];
-            int n = Integer.parseInt(command[1]);
+        char[][] arr = new char[park.length][park[0].length()];
 
-            for(int i=0; i<n; i++){
-                int newRow = start[0] + directionToRow(op);
-                int newCol = start[1] + directionToCol(op);
+        for(int i = 0; i < park.length; i++){
+            arr[i] = park[i].toCharArray();
 
-                // 공원 범위를 벗어나거나 장애물을 만나면 해당 명령을 무시하고 다음 명령 수행
-                if (!isValidPosition(park, newRow, newCol) || park[newRow].charAt(newCol) == 'X') {
-                    break;
-                }
-
-                start[0] = newRow;
-                start[1] = newCol;
-
-            }
-
-        }
-        return start;
-    }
-
-
-
-
-    private int[] findStart(String[] park) {
-        int[] start = new int[2];
-        for(int i=0;i< park.length;i++){
-            for(int j=0;j<park[i].length();j++){
-                if(park[i].charAt(j) == 'S'){
-                    start[0] = i;
-                    start[1] = j;
-                    return start;
-                }
+            if(park[i].contains("S")){
+                sy = i;
+                sx = park[i].indexOf("S");
             }
         }
-        return start;
-    }
 
-    private int directionToRow(String direction) {
-        if (direction.equals("N")) {
-            return -1;
-        } else if (direction.equals("S")) {
-            return 1;
-        } else {
-            return 0;
+        for(String st : routes){
+            String way = st.split(" ")[0];
+            int len = Integer.parseInt(st.split(" ")[1]);
+
+            int nx = sx;
+            int ny = sy;
+
+            for(int i = 0; i < len; i++){
+                if(way.equals("E")){
+                    nx++;
+                }
+                if(way.equals("W")){
+                    nx--;
+                }
+                if(way.equals("S")){
+                    ny++;
+                }
+                if(way.equals("N")){
+                    ny--;
+                }
+                if(nx >=0 && ny >=0 && ny < arr.length && nx < arr[0].length){
+                    if(arr[ny][nx] == 'X'){
+                        break;
+                    }
+                    // 범위내 & 장애물 x
+                    if(i == len-1){
+                        sx = nx;
+                        sy = ny;
+                    }
+                }
+            }
         }
-    }
 
-    private int directionToCol(String direction) {
-        if(direction.equals("W")){
-            return -1;
-        } else if(direction.equals("E")){
-            return 1;
-        } else {
-            return 0;
-        }
+        int[] answer = {sy, sx};
+        return answer;
     }
-
-    private boolean isValidPosition(String[] park, int row, int col) {
-        return row >= 0 && row < park.length && col >= 0 && col < park[row].length();
-    }
-
 }
