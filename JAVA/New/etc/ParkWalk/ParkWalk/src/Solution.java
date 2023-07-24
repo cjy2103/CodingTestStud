@@ -1,53 +1,61 @@
+import java.util.*;
 class Solution {
     public int[] solution(String[] park, String[] routes) {
-        int sx = 0;
-        int sy = 0;
+        int x = 0, y = 0;
 
-        char[][] arr = new char[park.length][park[0].length()];
+        for (String str : park) {
+            if (str.contains("S")) {
+                x = str.indexOf("S");
+                break;
+            }
+            y++;
+        }
 
-        for(int i = 0; i < park.length; i++){
-            arr[i] = park[i].toCharArray();
+        for (String move : routes) {
+            char dir = move.charAt(0);
+            int num = Integer.parseInt(move.substring(2));
+            int postX = x;
+            int postY = y;
 
-            if(park[i].contains("S")){
-                sy = i;
-                sx = park[i].indexOf("S");
+            num *= (dir == 'W' || dir == 'N') ? -1 : 1;
+            if (dir == 'E' || dir == 'W') {
+                postX += num;
+            } else {
+                postY += num;
+            }
+
+            if (isInsidePark(park, postY, postX) && !isBlockedByObstacle(park, dir, y, x, postY, postX)) {
+                x = postX;
+                y = postY;
             }
         }
 
-        for(String st : routes){
-            String way = st.split(" ")[0];
-            int len = Integer.parseInt(st.split(" ")[1]);
-
-            int nx = sx;
-            int ny = sy;
-
-            for(int i = 0; i < len; i++){
-                if(way.equals("E")){
-                    nx++;
-                }
-                if(way.equals("W")){
-                    nx--;
-                }
-                if(way.equals("S")){
-                    ny++;
-                }
-                if(way.equals("N")){
-                    ny--;
-                }
-                if(nx >=0 && ny >=0 && ny < arr.length && nx < arr[0].length){
-                    if(arr[ny][nx] == 'X'){
-                        break;
-                    }
-                    // 범위내 & 장애물 x
-                    if(i == len-1){
-                        sx = nx;
-                        sy = ny;
-                    }
-                }
-            }
-        }
-
-        int[] answer = {sy, sx};
-        return answer;
+        return new int[]{y, x};
     }
+
+    private boolean isInsidePark(String[] park, int y, int x) {
+        return y >= 0 && y < park.length && x >= 0 && x < park[0].length();
+    }
+
+    private boolean isBlockedByObstacle(String[] park, char dir, int y, int x, int postY, int postX) {
+        if (dir == 'E' || dir == 'W') {
+            int start = Math.min(x, postX);
+            int end = Math.max(x, postX);
+            for (int i = start; i <= end; i++) {
+                if (park[y].charAt(i) == 'X') {
+                    return true;
+                }
+            }
+        } else {
+            int start = Math.min(y, postY);
+            int end = Math.max(y, postY);
+            for (int i = start; i <= end; i++) {
+                if (park[i].charAt(x) == 'X') {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }
