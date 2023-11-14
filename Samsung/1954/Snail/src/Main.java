@@ -1,17 +1,56 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        int T;
+        T=sc.nextInt();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        for(int test_case = 1; test_case <= T; test_case++)
+        {
+            int N = sc.nextInt(); // 달팽이의 크기
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            int[][] snail = new int[N][N]; // 달팽이를 저장할 2차원 배열
+
+            int num = 1; // 달팽이에 채워질 숫자
+
+            int rowStart = 0, rowEnd = N - 1, colStart = 0, colEnd = N - 1;
+
+            while (num <= N * N) {
+                // 왼쪽에서 오른쪽으로
+                for (int i = colStart; i <= colEnd; i++) {
+                    snail[rowStart][i] = num++;
+                }
+                rowStart++;
+
+                // 위에서 아래로
+                for (int i = rowStart; i <= rowEnd; i++) {
+                    snail[i][colEnd] = num++;
+                }
+                colEnd--;
+
+                // 오른쪽에서 왼쪽으로
+                for (int i = colEnd; i >= colStart; i--) {
+                    snail[rowEnd][i] = num++;
+                }
+                rowEnd--;
+
+                // 아래에서 위로
+                for (int i = rowEnd; i >= rowStart; i--) {
+                    snail[i][colStart] = num++;
+                }
+                colStart++;
+            }
+
+            // 출력
+            System.out.println("#" + test_case);
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    System.out.print(snail[i][j] + " ");
+                }
+                System.out.println();
+            }
+
         }
     }
 }
