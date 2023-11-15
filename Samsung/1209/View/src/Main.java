@@ -1,17 +1,32 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        // SWEA 템플릿 코드에는 입력받는걸로 되어있지만 수정해야합니다. 안그러면 RuntimeError 발생
+        int T = 10;
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        for(int test_case = 1; test_case <= T; test_case++)
+        {
+            int N = sc.nextInt(); // 건물의 개수
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            int[] buildings = new int[N];
+
+            for (int i = 0; i < N; i++) {
+                buildings[i] = sc.nextInt(); // 각 건물의 높이
+            }
+
+            int count = 0;
+
+            for (int i = 2; i < N - 2; i++) {
+                int max = Math.max(buildings[i - 2], Math.max(buildings[i - 1], Math.max(buildings[i + 1], buildings[i + 2])));
+                if (buildings[i] - max > 0) {
+                    count += buildings[i] - max;
+                }
+            }
+
+            // 출력
+            System.out.println("#" + test_case + " " + count);
         }
     }
 }
