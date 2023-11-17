@@ -1,17 +1,42 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        int T;
+        T=sc.nextInt();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        for(int test_case = 1; test_case <= T; test_case++)
+        {
+            int N = sc.nextInt();
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            // 파스칼의 삼각형을 저장할 배열
+            int[][] triangle = new int[N][N];
+
+            // 첫 번째 줄은 모두 1로 초기화
+            for (int i = 0; i < N; i++) {
+                triangle[0][i] = 1;
+            }
+
+            // 두 번째 줄부터 각 숫자를 계산
+            for (int i = 1; i < N; i++) {
+                for (int j = 0; j <= i; j++) {
+                    if (j == 0 || j == i) {
+                        triangle[i][j] = 1;
+                    } else {
+                        triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+                    }
+                }
+            }
+
+            // 파스칼의 삼각형을 출력
+            System.out.println("#" + test_case);
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j <= i; j++) {
+                    System.out.print(triangle[i][j] + " ");
+                }
+                System.out.println();
+            }
         }
     }
 }
