@@ -1,17 +1,48 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        int T;
+        T=sc.nextInt();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        for(int test_case = 1; test_case <= T; test_case++)
+        {
+            int N = sc.nextInt(); // 배열 크기 입력
+            int M = sc.nextInt(); // 파리채 크기 입력
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            int[][] arr = new int[N][N];
+
+            // 배열 입력
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    arr[i][j] = sc.nextInt();
+                }
+            }
+
+            int maxSum = 0;
+
+            // 파리채 이동
+            for (int i = 0; i <= N - M; i++) {
+                for (int j = 0; j <= N - M; j++) {
+                    int sum = 0;
+
+                    // 파리채 영역의 합 구하기
+                    for (int x = i; x < i + M; x++) {
+                        for (int y = j; y < j + M; y++) {
+                            sum += arr[x][y];
+                        }
+                    }
+
+                    // 현재까지의 최대 합보다 크면 업데이트
+                    if (sum > maxSum) {
+                        maxSum = sum;
+                    }
+                }
+            }
+
+            System.out.println("#" + test_case + " " + maxSum);
         }
+
     }
 }
